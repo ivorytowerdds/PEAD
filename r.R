@@ -84,7 +84,7 @@ Dbnb<-bnb
 
 ####calculate Sue
 #####1st algorithm: sue1=ue/sd1,ue represents the first-order differential of the past 5 periods, sd1 represents the sd of ue in past 4 periods
-#####2nd algorithm ��sue2=ue/sd2,sd2 represents the sd of eps in past 4 periods
+#####2nd algorithm £¬sue2=ue/sd2,sd2 represents the sd of eps in past 4 periods
 Dsue<-0
 for(i in 1:(length(unique(Dbnb$year))-4)){
 year1<-sort(unique(Dbnb$year))[i]
@@ -136,7 +136,7 @@ z1$no<-as.integer(z1$mon)-7
 z2<-z[z$pmon=="07"&z$mon>="07"&z$mon<="11",]
 z2$no<-as.integer(z2$mon)-6
 z<-rbind(z1,z2)
-z<-z[!is.na(z$stk),] #519ֻ
+z<-z[!is.na(z$stk),] #519Ö»
 
 ####delete the stocks whose data of ar are not complete(Each stock should have 60 records) the skt is 216 now
 pead<-0
@@ -336,7 +336,7 @@ summary(p3) ##significant level:***
 p4<-lm(car~sue1,Df0)
 summary(p4) ##***
 
-#####test whether the PEAD phenomenon corresponds the risk pricing 
+#####test whether the PEAD phenomenon could be explained by the risk pricing thoery
 l1<-lm(car~rmrf+smb+hml+mom,Df0[Df0$dsue1==1,])
 summary(l1) 
 l2<-lm(car~rmrf+smb+hml+mom,Df0[Df0$dsue1==2,])
@@ -361,7 +361,7 @@ dat1$suet<-summary(p3)$coef[18]
 dat1$r2<-summary(p3)$adj.r.squared
 write.csv(dat1,"dat1.csv")
 
-###########import the result of the test of risk pricing
+###########import the result of the test of risk pricing theory
 dat2<-data.frame(alpha=NA,at=NA,rmrf=NA,rmrft=NA,smb=NA,smbt=NA,
 hml=NA,hmlt=NA,r2=NA)
 
